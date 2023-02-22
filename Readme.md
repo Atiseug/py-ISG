@@ -1,6 +1,6 @@
 # Description
 
-Python partial implementation of [Infinite-Storage-Glitch](https://github.com/DvorakDwarf/Infinite-Storage-Glitch) project and back compatible with its video-files (at least for now).   
+Python partial implementation of [Infinite-Storage-Glitch](https://github.com/DvorakDwarf/Infinite-Storage-Glitch) project. It's back compatible with its video-files (at least for now).   
 
 I don't know Rust, and I'm too lazy to compile original project or to boot to linux, so I don't know all the functionality of the original project, but I'm sure Rust should be much faster than this ("blazingly fast" right? :)). This project was done as kind of challenge for me and just for fun.
 
