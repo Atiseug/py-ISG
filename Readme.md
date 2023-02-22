@@ -25,7 +25,7 @@ Run all commands inside the folder with `main.py`.
 
 
 1. `python -m venv venv` to create virtual environment
-2. Activate venv (***! You need to activate venv every time when you start the program***): 
+2. Activate venv (***! You need to activate venv every time when you start the program if the window was closed***): 
    - Windows: `.\venv\Scripts\activate` (`(venv)` should be shown at start of line if this command worked fine)
    - bash: `source /venv/bin/activate`
 3. `pip install -r requirements.txt`
