@@ -38,4 +38,4 @@ Run all commands inside the folder with `main.py`.
 3. Write a path to a file/video. If the file/video is in the same folder as the `main.py` you can just type its name it should work.
 4. Wait...  
 
-You also can read [original instruction](https://github.com/DvorakDwarf/Infinite-Storage-Glitch/blob/master/README.md#how-to-use).
+You can also read [original instruction](https://github.com/DvorakDwarf/Infinite-Storage-Glitch/blob/master/README.md#how-to-use).
