@@ -119,8 +119,7 @@ def convert_video_to_file(video_path_to_conv, output_path, temp_dir):
             archive.write(data_chunk)
 
 
-def make_convertion(convert_func):
-    temp_path = create_temp_dir()
+def make_convertion(convert_func, temp_path):
     convert_object = "file" if convert_func == convert_file_to_video else "video"
     path_file_to_convert = input(f"Input path of the {convert_object} you want to convert: ")
     print("\nIn progress. Please wait...")
@@ -130,7 +129,6 @@ def make_convertion(convert_func):
     current_dir = os.path.dirname(os.path.realpath(__file__))
     created_file_full_name = [ext for ext in os.listdir(current_dir) if output_file_name in ext][0]
     print(f"\nCreated file: {created_file_full_name}")
-    return temp_path
 
 
 def main(delete_temp_dir=True):
@@ -141,12 +139,14 @@ def main(delete_temp_dir=True):
         if convert_option not in ("1", "2"):
             continue
         try:
+            TEMP_PATH = ""
+            TEMP_PATH = create_temp_dir()
             # FILE -> VIDEO
             if convert_option == "1":
-                TEMP_PATH = make_convertion(convert_file_to_video)
+                make_convertion(convert_file_to_video, TEMP_PATH)
             # VIDEO -> FILE
             if convert_option == "2":
-                TEMP_PATH = make_convertion(convert_video_to_file)
+                make_convertion(convert_video_to_file, TEMP_PATH)
         finally:
             if os.path.exists(TEMP_PATH) and delete_temp_dir:
                 rmtree(TEMP_PATH)
