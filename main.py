@@ -126,7 +126,10 @@ def make_convertion(convert_func):
     print("\nIn progress. Please wait...")
     output_file_name = generate_unique_file_name()
     convert_func(path_file_to_convert, output_file_name, temp_path)
-    print(f"\nCreated file: {output_file_name}")
+    # get file name with extension
+    current_dir = os.path.dirname(os.path.realpath(__file__))
+    created_file_full_name = [ext for ext in os.listdir(current_dir) if output_file_name in ext][0]
+    print(f"\nCreated file: {created_file_full_name}")
     return temp_path
 
 
