@@ -33,7 +33,7 @@ Run all commands inside the folder with `main.py`.
 
 ## How to Use
 
-1. Make zip archive from some of your files. Or download video which you want to convert to file.
+1. Make zip archive from some of your files. Or [download video](https://github.com/Atiseug/py-ISG#download-video-from-youtube) which you want to convert to file.
 2. Run the `main.py` (there are only 2 options each of which I think should be clear)
 3. Write a path to a file/video. If the file/video is in the same folder as the `main.py` you can just type its name it should work.
 4. Wait...  
