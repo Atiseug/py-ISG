@@ -127,7 +127,7 @@ def make_convertion(convert_func, temp_path):
     convert_func(path_file_to_convert, output_file_name, temp_path)
     # get file name with extension
     current_dir = os.path.dirname(os.path.realpath(__file__))
-    created_file_full_name = [ext for ext in os.listdir(current_dir) if output_file_name in ext][0]
+    created_file_full_name = next((ext for ext in os.listdir(current_dir) if output_file_name in ext))
     print(f"\nCreated file: {created_file_full_name}")
 
 
