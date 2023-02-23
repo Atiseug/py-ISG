@@ -119,6 +119,17 @@ def convert_video_to_file(video_path_to_conv, output_path, temp_dir):
             archive.write(data_chunk)
 
 
+def make_convertion(convert_func):
+    temp_path = create_temp_dir()
+    convert_object = "file" if convert_func == convert_file_to_video else "video"
+    path_file_to_convert = input(f"Input path of the {convert_object} you want to convert: ")
+    print("\nIn progress. Please wait...")
+    output_file_name = generate_unique_file_name()
+    convert_func(path_file_to_convert, output_file_name, temp_path)
+    print(f"\nCreated file: {output_file_name}")
+    return temp_path
+
+
 def main(delete_temp_dir=True):
     while True:
         convert_option = input("Choose an option:\n1. FILE -> VIDEO\n"
@@ -126,30 +137,16 @@ def main(delete_temp_dir=True):
         # input validation
         if convert_option not in ("1", "2"):
             continue
-        # FILE -> VIDEO
-        if convert_option == "1":
-            try:
-                TEMP_PATH = create_temp_dir()
-                path_file_to_convert = input("Input path of the file you want to convert: ")
-                print("\nIn progress. Please wait...")
-                output_file_name = generate_unique_file_name()
-                convert_file_to_video(path_file_to_convert, output_file_name, TEMP_PATH)
-                print(f"\nCreated file: {output_file_name}")
-            finally:
-                if os.path.exists(TEMP_PATH) and delete_temp_dir:
-                    rmtree(TEMP_PATH)
-        # VIDEO -> FILE
-        if convert_option == "2":
-            try:
-                TEMP_PATH = create_temp_dir()
-                path_file_to_convert = input("Input path of the video you want to convert: ")
-                print("\nIn progress. Please wait...")
-                output_file_name = generate_unique_file_name()
-                convert_video_to_file(path_file_to_convert, output_file_name, TEMP_PATH)
-                print(f"\nCreated file: {output_file_name}")
-            finally:
-                if os.path.exists(TEMP_PATH) and delete_temp_dir:
-                    rmtree(TEMP_PATH)
+        try:
+            # FILE -> VIDEO
+            if convert_option == "1":
+                TEMP_PATH = make_convertion(convert_file_to_video)
+            # VIDEO -> FILE
+            if convert_option == "2":
+                TEMP_PATH = make_convertion(convert_video_to_file)
+        finally:
+            if os.path.exists(TEMP_PATH) and delete_temp_dir:
+                rmtree(TEMP_PATH)
         break
 
 
